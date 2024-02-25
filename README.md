@@ -1,4 +1,4 @@
-//backend
+//**backend**
 //database schema
 create database social_media;
 use social_media;
