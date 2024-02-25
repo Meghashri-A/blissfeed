@@ -1,7 +1,7 @@
-#Bliss-feed (Social Media Application)
-##It has been deployed as a single web app (both frontend and backend together)
+# Bliss-feed (Social Media Application)
+## It has been deployed as a single web app (both frontend and backend together)
 
-###Frontend Functionalities
+### Frontend Functionalities
 
 
 
