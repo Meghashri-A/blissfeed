@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const apis = require('./api');
 const mysql = require('mysql');
 const path = require('path');
 const dotenv = require('dotenv');
@@ -20,7 +19,7 @@ const db = mysql.createConnection({
     database: process.env.MYSQL_DB_NAME
 });
 
-const connection = db.connect((err) => {
+db.connect((err) => {
 if (err) {
     throw err;
 }
@@ -32,7 +31,6 @@ console.log('Connected to MySQL database');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
-//app.use('/api/v1/', apis);
 
 app.get("/", (req, res) => {
     res.render('home')
@@ -322,5 +320,3 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
-module.exports = connection;
-//exports.db = db;
