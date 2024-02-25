@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to BlissFeed</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Bogle', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("home2.jpg");
+            background-size: cover;
+            background-position: center;
+            filter: brightness(50%); /* Adjust the brightness of the image */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0); /* Transparent black overlay */
+            z-index: 1; /* Ensure overlay appears above the background image */
+        }
+
+        .container {
+            position: relative;
+            z-index: 2; /* Ensure content appears above the overlay */
+            text-align: center; /* Center text horizontally */
+            color: #fff; /* White text color */
+        }
+
+        .welcome-text {
+            font-size: 5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better contrast */
+        }
+
+        .enter-button {
+            display: inline-block;
+            padding: 15px 30px; 
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+            background-color: #fff; /* White background */
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            animation: pulseAnimation 1.5s infinite alternate; /* Pulse animation */
+        }
+
+        .enter-button:hover {
+            transform: scale(1.05);
+            background-color: #eee; /* Lighter background color on hover */
+        }
+
+        @keyframes pulseAnimation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="welcome-text">Welcome to BlissFeed</div>
+        <a href="/login" class="enter-button btn btn-lg btn-success">Enter</a>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

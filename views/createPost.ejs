@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <style>
+       body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to bottom, #6a0dad, #000000); /* Gradient background */
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
+            z-index: 1; /* Ensure the overlay appears above the background image */
+        }
+
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            font-family: 'Arial', sans-serif; /* Basic font style */
+            position: relative; /* Ensure the navbar appears above the overlay */
+            z-index: 2; /* Ensure the navbar appears above other content */
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-right a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold; /* Strong font style */
+            font-style: italic; /* Italic font style */
+        }
+
+        .navbar-right a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .search-container input[type=text] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            width: 250px; /* Adjust width as needed */
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-family: 'Arial', sans-serif; /* Basic font style */
+        }
+
+        .search-container button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 50px;
+            height: 30px;
+            font-family: 'Arial', sans-serif; /* Basic font style */
+        }
+
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .main-container {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center align the main container */
+            height: 100vh;
+            margin: 0;
+            font-family: 'Bogle', sans-serif;
+            background-color: transparent; /* Transparent background */
+            position: relative;
+            z-index: 2; /* Ensure the main container appears above the overlay */
+        }
+
+        h1 {
+            padding: 80px;
+            margin: 10%;
+            font-size: 300%;
+            color: white; /* Text color */
+            text-align: center;
+        }
+
+        .create-post-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 3; /* Ensure the create post box appears above the overlay */
+        }
+
+        .input-field {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .textarea-field {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 15px;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            outline: none;
+            resize: vertical;
+        }
+
+        .add-post-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <div class="navbar">
+        <div class="navbar-right">
+            <a href="/feed">Posts</a>
+            <a href="/view">View Profile</a>
+            <a href="/create/post">Create Post</a>
+            <a href="/login">Log out</a>
+        </div>
+        <div class="search-container">
+            <form action="/finduser" method="GET">
+                <input type="text" placeholder="Search by username" name="username">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <h1>Create Post</h1>
+        <div class="create-post-container">
+            <form action="/create/post" method="POST">
+
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" class="input-field" required>
+
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" class="textarea-field" required></textarea>
+
+                <button class="add-post-button">Add Post</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

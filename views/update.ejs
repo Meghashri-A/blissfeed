@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: linear-gradient(to bottom, #6a0dad, #000000); /* Gradient background */
+            color: white; /* Set text color to white */
+        }
+
+        .container {
+            width: 550px; /* Increased width */
+            height: 300px; /* Increased height */
+            padding: 30px; /* Adjusted padding */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent input background */
+            color: white; /* Set input text color to white */
+        }
+
+        .btn-save,
+        .btn-back {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .btn-save:hover,
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Profile</h2>
+        <form id="updateForm" action="/updateuser" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" value="<%= user.username %>" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="<%= user.email %>" required>
+            </div>
+            <!-- Add more fields as needed -->
+            <button type="submit" class="btn-save">Save</button>
+            <a href="/feed" class="btn-back">Back</a>
+        </form>
+    </div>
+
+    <script>
+        // Check if success parameter exists in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const success = urlParams.get('success');
+
+        // If success parameter is true, display alert
+        if (success === 'true') {
+            alert('Profile successfully updated!');
+            window.location.href = '/view';
+        }
+    </script>
+
+</body>
+</html>
